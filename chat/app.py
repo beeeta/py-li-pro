@@ -1,29 +1,24 @@
-from flask import Flask,session,g,request,abort
+from flask import Flask,session,g,request,abort,render_template
 from flask_session import Session
 
 import logging
 from logging.handlers import RotatingFileHandler
 
 import sqlite3
+""" this app is a flask demo"""
 
 app = Flask(__name__)
-app.secret_key='ffadfsdf'
-app.config.from_object(__name__)
+app.config.from_pyfile('config.py')
 
-@app.route('/hello/<name>')
-def index(name):
-    session['name'] = name
-    return 'hello'
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/wel')
 def wel():
     if not session.get('name'):
         abort(404)
     return session.get('name')
-
-@app.before_request
-def before_request():
-    app.logger.debug('ip:{}|visit:{}'.format(request.remote_addr, request.url))
 
 @app.errorhandler(404)
 def not_handler(error):

@@ -1,1 +1,1 @@
-aa='aaaaaa'
+SECRET_KEY='ASDFGHJKL'
