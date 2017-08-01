@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<ul>
+    <li>宠物类型 | 所在城市 | 年龄 | 微信 | 邮箱 | 信息源 | 状态 | 创建日期 | 发布者ID </li>
+    {% for pet in pets %}
+        <li>{{ pet.type}} | {{pet.city}} | {{pet.age}} | {{pet.wechat}} | {{pet.email}} | {{pet.source}} | {{pet.status}} | {{pet.createtime}} | {{pet.host}}</li>
+        <br/>
+    {% endfor %}
+</ul>
+
+{% endblock %}

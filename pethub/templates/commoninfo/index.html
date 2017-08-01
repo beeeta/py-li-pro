@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>欢迎来到 pethub ：） </h2>
+一个帮助宠物送养，收养与求助的小平台
+<br>
+请选择：
+<ul>
+    <li><a href=" {{ url_for('commoninfo.shouyang')}}" >收养</a></li>
+    <li><a href=" {{ url_for('commoninfo.songyang')}}" >送养</a></li>
+    <li><a href=" {{ url_for('commoninfo.qiuzhu')}}" >求助</a></li>
+
+</ul>
+{% endblock %}
