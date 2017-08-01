@@ -1,7 +1,7 @@
 from flask import Flask,session,g,request,abort,render_template
 from flask_session import Session
 from blueprinter.commoninfo.commonview import bp
-from flask_sql
+from flask_sqlalchemy import SQLAlchemy
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -11,7 +11,7 @@ app.config.update(dict(EXPLAIN_TEMPLATE_LOADING=True))
 app.config.from_pyfile('config.py')
 
 app.register_blueprint(bp)
-
+db = SQLAlchemy(app)
 
 @app.errorhandler(404)
 def not_handler(error):
